@@ -40,13 +40,20 @@ end
 
 
 def selective_tweet_shortener(tweet)
-  tweeter = tweet.split(" ")
-  if tweeter.length > 140
-    bulk_tweet_shortener(tweeter)
+  if tweet.size > 140
+    word_substituter(tweet)
   else
+    # tweet.size < 130 why is this not able to be here?
     tweet
 end
 end
 
 def shortened_tweet_truncator(tweet)
+  if tweet.length > 140
+    word_substituter(tweet)
+    tweet[0..139]
+    # binding.pry
+  else
+    tweet
+  end
 end
